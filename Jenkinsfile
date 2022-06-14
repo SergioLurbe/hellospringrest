@@ -5,7 +5,9 @@ pipeline {
             steps {
                 // Chicken-and-egg problem
                 // git branch: 'main', url: 'https://github.com/devops-summer22/hello-springrest.git'
-                sh "./gradlew test assemble"
+                withGradle {
+                    sh "./gradlew test assemble"
+                }
             }
             post {
                 success {
